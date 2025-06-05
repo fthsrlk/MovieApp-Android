@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageViewDetailPoster"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:transitionName="moviePosterTransition"
+            app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+        <!-- Film Başlığı -->
+        <TextView
+            android:id="@+id/textViewDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Film Başlığı"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <!-- Film Yılı -->
+        <TextView
+            android:id="@+id/textViewDetailYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yıl"
+            android:layout_marginTop="8dp" />
+
+        <!-- Film Puanı -->
+        <TextView
+            android:id="@+id/textViewDetailRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puan"
+            android:layout_marginTop="8dp" />
+
+        <!-- Film Açıklaması -->
+        <TextView
+            android:id="@+id/textViewDetailDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Açıklama"
+            android:layout_marginTop="16dp" />
+
+        <!-- Düzenle ve Sil Butonları -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonWatchVideo"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Videoyu İzle"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonEdit"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Düzenle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonDelete"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sil"
+                android:layout_marginStart="16dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
