@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="?attr/colorSurface">
+
+    <!-- Appbar ve toolbar -->
+    <com.google.android.material.appbar.AppBarLayout 
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:background="@android:color/transparent" 
+        android:fitsSystemWindows="true" 
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar 
+            android:id="@+id/toolbar" 
+            android:layout_width="match_parent" 
+            android:layout_height="?attr/actionBarSize" 
+            android:background="@android:color/transparent" 
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:title="Film &amp; Dizi Arşivim" 
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/TextAppearance.MovieApp.Toolbar.Title"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Ana içerik kısmı -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Kullanıcı karşılama mesajı -->
+            <TextView
+                android:id="@+id/textViewWelcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hoş geldiniz!"
+                android:textAppearance="@style/TextAppearance.MovieApp.Headline"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Film ve dizi koleksiyonunuzu yönetmeye başlayın"
+                android:textAppearance="@style/TextAppearance.MovieApp.Body"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Filmler kartı -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/moviesCard"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MovieApp.Card"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_background_movies"/>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/movieIcon"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_margin="24dp"
+                        android:src="@drawable/ic_movie"
+                        app:tint="?attr/colorOnPrimaryContainer"
+                        android:background="?attr/colorPrimaryContainer"
+                        app:shapeAppearanceOverlay="@style/CircularImageView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/movieTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Filmler"
+                        android:textAppearance="@style/TextAppearance.MovieApp.Title"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintBottom_toTopOf="@+id/movieDescription"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/movieIcon"
+                        app:layout_constraintVertical_bias="0.9"/>
+
+                    <TextView
+                        android:id="@+id/movieDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Film koleksiyonunuzu yönetin"
+                        android:textAppearance="@style/TextAppearance.MovieApp.Body"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/movieTitle"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Görüntüle"
+                        android:layout_margin="16dp"
+                        app:icon="@drawable/ic_arrow_forward"
+                        app:iconGravity="end"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Diziler kartı -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tvSeriesCard"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                style="@style/Widget.MovieApp.Card"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_background_tv"/>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/tvIcon"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_margin="24dp"
+                        android:src="@drawable/ic_tv"
+                        app:tint="?attr/colorOnSecondaryContainer"
+                        android:background="?attr/colorSecondaryContainer"
+                        app:shapeAppearanceOverlay="@style/CircularImageView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Diziler"
+                        android:textAppearance="@style/TextAppearance.MovieApp.Title"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvIcon"
+                        app:layout_constraintVertical_bias="0.9"/>
+
+                    <TextView
+                        android:id="@+id/tvDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Dizi koleksiyonunuzu yönetin"
+                        android:textAppearance="@style/TextAppearance.MovieApp.Body"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Görüntüle"
+                        android:layout_margin="16dp"
+                        app:icon="@drawable/ic_arrow_forward"
+                        app:iconGravity="end"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Öneri Ekranı Butonu -->
+            <Button
+                android:id="@+id/btnRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Kişiselleştirilmiş Öneriler"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_recommendation" />
+
+            <!-- Fragment Container -->
+            <FrameLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:minHeight="200dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Bar -->
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="10dp"
+        app:fabCradleVerticalOffset="0dp"
+        app:menu="@menu/bottom_app_bar_menu"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search"
+        app:layout_anchor="@id/bottomAppBar"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    
+    <!-- Öneri ekranı -->
+    <string name="unknown_title">Bilinmeyen Başlık</string>
+    <string name="unknown_type">Diğer</string>
+    <string name="content_type_movie">Film</string>
+    <string name="content_type_tv">Dizi</string>
+    <string name="item_id_format">İçerik #%d</string>
+    <string name="recommendations_empty">Öneri bulunamadı</string>
+    <string name="recommendations_error">Öneriler yüklenirken hata oluştu</string>
+</resources>
